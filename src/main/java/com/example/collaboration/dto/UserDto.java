@@ -12,6 +12,7 @@ import java.util.List;
 public class UserDto {
 
     private long userID;
+    private String password;
     private String firstName;
     private String lastName;
     private String email;

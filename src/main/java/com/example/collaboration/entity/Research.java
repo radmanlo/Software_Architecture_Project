@@ -15,6 +15,7 @@ public class Research {
 
     @Id @GeneratedValue( strategy = GenerationType.AUTO)
     private long researchId;
+    private String password;
     private String name;
     private String description;
     private double salary;
