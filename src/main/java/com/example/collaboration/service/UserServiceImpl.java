@@ -1,5 +1,6 @@
 package com.example.collaboration.service;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.example.collaboration.dto.UserDto;
 import com.example.collaboration.entity.User;
 import com.example.collaboration.repository.UserRepository;
@@ -80,6 +81,21 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserDto getUser(String email, String password) {
+        Optional<User> user = userRepository.findUserByEmail(email);
+        if (user.isPresent()){
+            if (user.get().getPassword().equals(password)){
+                UserDto userFound = new UserDto();
+                userFound.setUserId(user.get().getUserId());
+                userFound.setFirstName(user.get().getFirstName());
+                userFound.setLastName(user.get().getLastName());
+                userFound.setEmail(user.get().getEmail());
+                userFound.setBirthdate(user.get().getBirthdate());
+                return userFound;
+            }
+            System.out.println("Invalid Password");
+            return null;
+        }
+        System.out.println("Invalid Email");
         return null;
     }
 

@@ -4,24 +4,62 @@ import com.example.collaboration.dto.UserDto;
 import com.example.collaboration.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/user")
+//@RestController
+//@RequestMapping("/user")
+@Controller
 public class UserController {
+
+    @Autowired
+    private MessageSource messageSource;
 
     @Autowired
     private UserService userService;
 
-    @PostMapping("/newUser")
-    public ResponseEntity<UserDto> createUser(@RequestBody @Valid UserDto newUser){
-        UserDto response = userService.createUser(newUser);
-        if ( response == null){
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+    @GetMapping("user/create/form")
+    public String showCreateUserForm(Model model) {
+        UserDto userDto = new UserDto();
+        model.addAttribute("userDto", userDto);
+        return "index";
+    }
+
+    //    public ResponseEntity<UserDto> createUser(@RequestBody @Valid UserDto newUser, BindingResult bindingResult, Model model){
+    @PostMapping("user/create")
+    public String createUser(@ModelAttribute @Valid UserDto newUser, BindingResult bindingResult, Model model){
+        if (bindingResult.hasErrors()) {
+            System.out.println("I am here");
+            for (FieldError error : bindingResult.getFieldErrors()) {
+                String errorMessage = messageSource.getMessage(error, null);
+                // Add the error message to the model
+                model.addAttribute("error", errorMessage);
+            }
+            return "index"; // Return the name of the HTML template
         }
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+        else{
+            try {
+                UserDto response = userService.createUser(newUser);
+                if (response == null) {
+                    model.addAttribute("error", "This email address already exists");
+                    return "index";
+//                  return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+                }
+                model.addAttribute("message", "User created successfully.");
+                return "index"; // Return the name of the HTML template
+//            return new ResponseEntity<>(response, HttpStatus.CREATED);
+            } catch (Exception e) {
+                model.addAttribute("error", "Internal Server Error");
+                return "index";
+//            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
     }
 
     @PutMapping("/updateUser")

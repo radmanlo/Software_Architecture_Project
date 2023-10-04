@@ -2,6 +2,7 @@ package com.example.collaboration.dto;
 
 import com.example.collaboration.entity.Research;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
