@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Research</title>
+  <link rel="stylesheet" href="createStyle.css">
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="createStyle.css">
+</head>
+
+<body>
+<h1>Create Research</h1>
+<form id="research-form">
+
+  <label for="subject">Subject:</label>
+  <input type="text" id="subject" name="subject" required>
+
+  <label for="description">Description:</label>
+  <textarea id="description" name="description" rows="5" required></textarea>
+
+  <label for="salary">Salary:</label>
+  <input type="number" id="salary" name="salary" step="0.01" required>
+
+  <label for="startDate">Start Date:</label>
+  <input type="date" id="startDate" name="startDate" required>
+
+  <label for="userId">User ID:</label>
+  <input type="number" id="userId" name="userId" required>
+
+  <button type="submit">Submit</button>
+</form>
+
+<script src="createScript.js"></script>
+
+</body>
+</html>
