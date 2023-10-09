@@ -2,6 +2,8 @@ package com.example.collaboration.service;
 
 import com.example.collaboration.dto.ResearchDto;
 
+import java.util.List;
+
 public interface ResearchService {
 
     /**
@@ -30,6 +32,12 @@ public interface ResearchService {
      * @return NULL
      */
     ResearchDto getResearch (long researchId);
+
+    /**
+     * Get all researches
+     * @return list of researches
+     */
+    List<ResearchDto> getAllResearch();
 
     /**
      * Get Research by its name

@@ -4,6 +4,7 @@ import com.example.collaboration.dto.UserDto;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.sql.Date;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@ToString
 public class Research {
 
     @Id @GeneratedValue( strategy = GenerationType.IDENTITY)
@@ -20,7 +22,7 @@ public class Research {
     private double salary;
     private Date startDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "manager")
     private User manager;
 

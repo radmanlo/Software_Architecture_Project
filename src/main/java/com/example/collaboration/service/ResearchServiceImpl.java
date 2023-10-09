@@ -1,11 +1,14 @@
 package com.example.collaboration.service;
 
 import com.example.collaboration.dto.ResearchDto;
+import com.example.collaboration.dto.UserDto;
 import com.example.collaboration.entity.Research;
 import com.example.collaboration.entity.User;
 import com.example.collaboration.repository.ResearchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.*;
 
 @Service
 public class ResearchServiceImpl implements ResearchService {
@@ -39,6 +42,25 @@ public class ResearchServiceImpl implements ResearchService {
     @Override
     public ResearchDto getResearch(long researchId) {
         return null;
+    }
+
+    @Override
+    public List<ResearchDto> getAllResearch() {
+        List<ResearchDto> allResearchDto = new ArrayList<ResearchDto>();
+        researchRepository.findAllWithManager().forEach(research -> {
+            ResearchDto researchDto = new ResearchDto();
+            researchDto.setResearchId(research.getResearchId());
+            researchDto.setSubject(research.getSubject());
+            researchDto.setDescription(research.getDescription());
+            researchDto.setSalary(research.getSalary());
+            UserDto manager = new UserDto();
+            manager.setUserId(research.getManager().getUserId());
+            manager.setFirstName(research.getManager().getFirstName());
+            manager.setLastName(research.getManager().getLastName());
+            researchDto.setManager(manager);
+            allResearchDto.add(researchDto);
+        });
+        return allResearchDto;
     }
 
     @Override

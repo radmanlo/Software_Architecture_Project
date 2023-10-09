@@ -8,6 +8,7 @@ import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.sql.Date;
@@ -17,6 +18,7 @@ import java.util.List;
 @Table
 @Data
 @NoArgsConstructor
+@ToString
 public class User {
 
     @Id
