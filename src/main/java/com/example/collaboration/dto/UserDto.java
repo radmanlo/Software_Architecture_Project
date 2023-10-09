@@ -9,12 +9,14 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.sql.Date;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
+@ToString
 public class UserDto {
 
     private long userId;
@@ -37,6 +39,6 @@ public class UserDto {
     private Date birthdate;
 
     private List<Research> ownResearch;
-    private List<ResearchDto> research;
+//    private List<ResearchDto> research;
 
 }

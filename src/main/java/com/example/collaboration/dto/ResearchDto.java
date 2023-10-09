@@ -12,11 +12,11 @@ public class ResearchDto {
 
 
     private long researchId;
-    private String name;
+    private String Subject;
     private String description;
     private double salary;
     private Date startDate;
     private UserDto manager;
-    private List<UserDto> participants;
+//    private List<UserDto> participants;
 
 }

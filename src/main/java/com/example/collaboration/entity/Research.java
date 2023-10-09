@@ -13,16 +13,21 @@ import java.util.List;
 @NoArgsConstructor
 public class Research {
 
-    @Id @GeneratedValue( strategy = GenerationType.AUTO)
+    @Id @GeneratedValue( strategy = GenerationType.IDENTITY)
     private long researchId;
-    private String password;
-    private String name;
+    private String subject;
     private String description;
     private double salary;
     private Date startDate;
+
     @ManyToOne
-    @JoinColumn(name = "managerId")
+    @JoinColumn(name = "manager")
     private User manager;
-    @ManyToMany(mappedBy = "research")
-    private List<User> participants;
+
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "manager")
+//    private User manager;
+
+//    @ManyToMany(mappedBy = "research")
+//    private List<User> participants;
 }

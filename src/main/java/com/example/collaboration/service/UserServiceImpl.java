@@ -37,6 +37,21 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public UserDto getUser(long userId) {
+        Optional<User> userOpt = userRepository.findById(userId);
+        if (userOpt.isPresent()){
+            User foundUser = userOpt.get();
+            UserDto foundUserDto = new UserDto();
+            foundUserDto.setFirstName(foundUser.getFirstName());
+            foundUserDto.setLastName(foundUser.getLastName());
+            foundUserDto.setEmail(foundUser.getEmail());
+            foundUserDto.setUserId(foundUser.getUserId());
+            return foundUserDto;
+        }
+        return null;
+    }
+
+    @Override
     public UserDto updateUser(UserDto userDto) {
         System.out.println(userDto.getUserId());
         Optional<User> user = userRepository.findUserByUserId(userDto.getUserId());
@@ -78,6 +93,8 @@ public class UserServiceImpl implements UserService{
         System.out.println("...................ERROR...................");
         return null;
     }
+
+
 
     @Override
     public UserDto getUser(String email, String password) {

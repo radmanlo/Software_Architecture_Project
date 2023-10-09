@@ -15,13 +15,24 @@ public interface UserService {
     UserDto createUser (UserDto userDto);
 
     /**
-     * Update a User by userId
+     * Get User by Id
      * @param userId
+     * @return founded User
+     * otherwise
+     * @return null
+     */
+    UserDto getUser (long userId);
+
+    /**
+     * Update a User by userId
+     * @param userDto
      * @return UserDto User Data Transfer Object if it was successful
      * otherwise
      * @return NULL
      */
     UserDto updateUser (UserDto userDto);
+
+
 
     /**
      * Get User by email

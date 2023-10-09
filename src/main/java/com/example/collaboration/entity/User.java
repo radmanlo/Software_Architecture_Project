@@ -1,5 +1,6 @@
 package com.example.collaboration.entity;
 
+import com.example.collaboration.dto.UserDto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
@@ -13,7 +14,7 @@ import java.sql.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table
 @Data
 @NoArgsConstructor
 public class User {
@@ -21,22 +22,28 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long userId;
+
     private String firstName;
     private String lastName;
     private String email;
     private String password;
     private Date birthdate;
 
-    @OneToMany(mappedBy = "manager")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "manager", referencedColumnName = "userId")
     private List<Research> ownResearch;
 
-    @ManyToMany
-    @JoinTable(
-            name= "collaboration",
-            joinColumns = @JoinColumn(name = "userId"),
-            inverseJoinColumns = @JoinColumn(name = "researchId")
-    )
-    private List<Research> research;
+//    @OneToMany(targetEntity = Research.class, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "manager", referencedColumnName = "userId")
+//    private List<Research> ownResearch;
+
+//    @ManyToMany
+//    @JoinTable(
+//            name= "collaboration",
+//            joinColumns = @JoinColumn(name = "userId"),
+//            inverseJoinColumns = @JoinColumn(name = "researchId")
+//    )
+//    private List<Research> research;
 
 
 }
