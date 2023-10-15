@@ -22,7 +22,7 @@ public class ResearchController {
     @PostMapping("/create")
     public ResponseEntity<ResearchDto> createResearch (@RequestBody ResearchDto researchDto){
         try {
-            String url = "http://localhost:8080/user/find?userId=" + researchDto.getManager().getUserId();
+            String url = "http://localhost:8080/user/find?email=" + researchDto.getManager().getEmail();
             RestTemplate restTemplate = new RestTemplate();
             ResponseEntity<UserDto> response = restTemplate.getForEntity(url, UserDto.class);
             if (response.hasBody()) {
@@ -46,4 +46,6 @@ public class ResearchController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+
+    //@GetMapping("/getUser")
 }

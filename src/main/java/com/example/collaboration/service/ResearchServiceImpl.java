@@ -17,15 +17,13 @@ public class ResearchServiceImpl implements ResearchService {
     private ResearchRepository researchRepository;
     @Override
     public ResearchDto createResearch(ResearchDto researchDto) {
-
         Research research = new Research();
         research.setSubject(researchDto.getSubject());
         research.setDescription(researchDto.getDescription());
         research.setSalary(researchDto.getSalary());
+        research.setStartDate(researchDto.getStartDate());
         User manager = new User();
-        manager.setUserId(researchDto.getManager().getUserId());
-        manager.setBirthdate(researchDto.getManager().getBirthdate());
-        manager.setFirstName(researchDto.getManager().getFirstName());
+        manager.setEmail(researchDto.getManager().getEmail());
         research.setManager(manager);
         researchRepository.save(research);
         System.out.println("..........................................");
@@ -53,8 +51,9 @@ public class ResearchServiceImpl implements ResearchService {
             researchDto.setSubject(research.getSubject());
             researchDto.setDescription(research.getDescription());
             researchDto.setSalary(research.getSalary());
+            researchDto.setStartDate(research.getStartDate());
             UserDto manager = new UserDto();
-            manager.setUserId(research.getManager().getUserId());
+            manager.setEmail(research.getManager().getEmail());
             manager.setFirstName(research.getManager().getFirstName());
             manager.setLastName(research.getManager().getLastName());
             researchDto.setManager(manager);

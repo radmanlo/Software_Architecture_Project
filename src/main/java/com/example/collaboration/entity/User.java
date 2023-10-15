@@ -21,19 +21,21 @@ import java.util.List;
 @ToString
 public class User {
 
+
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long userId;
+    private String email;
+//    private long userId;
 
     private String firstName;
     private String lastName;
-    private String email;
-    private String password;
-    private Date birthdate;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "manager", referencedColumnName = "userId")
-    private List<Research> ownResearch;
+//    private String password;
+//    private Date birthdate;
+
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "manager", referencedColumnName = "userId")
+//    private List<Research> ownResearch;
 
 //    @OneToMany(targetEntity = Research.class, cascade = CascadeType.ALL)
 //    @JoinColumn(name = "manager", referencedColumnName = "userId")

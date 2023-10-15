@@ -19,7 +19,7 @@ import java.util.List;
 @ToString
 public class UserDto {
 
-    private long userId;
+//    private long userId;
 
     @NotNull(message = "First Name is Mandatory")
     private String firstName;
@@ -31,14 +31,14 @@ public class UserDto {
     @NotNull(message = "Email is Mandatory")
     private String email;
 
-    @NotNull(message = "First Name is Mandatory")
-    private String password;
+//    @NotNull(message = "First Name is Mandatory")
+//    private String password;
+//
+//    @NotNull(message = "Birthdate is Mandatory")
+//    @JsonFormat(pattern = "yyyy-MM-dd")
+//    private Date birthdate;
 
-    @NotNull(message = "Birthdate is Mandatory")
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date birthdate;
-
-    private List<Research> ownResearch;
+//    private List<Research> ownResearch;
 //    private List<ResearchDto> research;
 
 }

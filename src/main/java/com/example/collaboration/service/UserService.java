@@ -21,7 +21,7 @@ public interface UserService {
      * otherwise
      * @return null
      */
-    UserDto getUser (long userId);
+    UserDto getUser (String email);
 
     /**
      * Update a User by userId

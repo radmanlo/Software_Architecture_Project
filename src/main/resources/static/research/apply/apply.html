@@ -1,0 +1,39 @@
+<!-- research_details.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Research</title>
+    <link rel="stylesheet" href="applyStyle.css">
+</head>
+<h1>Apply Research</h1>
+<body>
+    <div id="research-container">
+        <!-- Data for the selected research item will be displayed here -->
+        <div id="contributors-container">
+            <!-- Contributor information will be displayed here -->
+        </div>
+    </div>
+    <form id="apply-form">
+
+        <div id="application-form" class="research-card">
+            <!-- Data for Email and Cover Letter inputs -->
+            <div class="form-group">
+                <div class="field-label">Email:</div>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <div class="field-label">Cover Letter:</div>
+                <textarea id="cover-letter" name="cover-letter" rows="8" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="apply" class="apply-button">Apply</button>
+            </div>
+        </div>
+
+    </form>
+    
+<script src="applyScript.js"></script>
+</body>
+</html>

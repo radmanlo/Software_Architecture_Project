@@ -1,6 +1,7 @@
 package com.example.collaboration.entity;
 
 import com.example.collaboration.dto.UserDto;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,11 +21,16 @@ public class Research {
     private String subject;
     private String description;
     private double salary;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date startDate;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "manager")
     private User manager;
+
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "user_id", referencedColumnName = "userId")
+//    private List<Collaboration> records;
 
 //    @ManyToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "manager")

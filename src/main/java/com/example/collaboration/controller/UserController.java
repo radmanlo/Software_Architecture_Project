@@ -34,7 +34,6 @@ public class UserController {
     @PostMapping("/create")
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto newUser){
         try{
-            System.out.println("User is: \n" + newUser.toString());
             UserDto response = userService.createUser(newUser);
             if (response == null) {
                 return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -47,9 +46,9 @@ public class UserController {
     }
 
     @GetMapping("/find")
-    public ResponseEntity<UserDto> findUser(@RequestParam long userId){
+    public ResponseEntity<UserDto> findUser(@RequestParam String email){
         try{
-            UserDto foundUser = userService.getUser(userId);
+            UserDto foundUser = userService.getUser(email);
             if (foundUser != null)
                 return new ResponseEntity<>(foundUser, HttpStatus.FOUND);
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
@@ -61,7 +60,7 @@ public class UserController {
 
     @PutMapping("/updateUser")
     public ResponseEntity<UserDto> updateUser(@RequestBody UserDto newUser){
-        System.out.println("in Controller " + newUser.getUserId());
+        System.out.println("in Controller " + newUser.getEmail());
         UserDto response = userService.updateUser(newUser);
         if (response == null){
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
