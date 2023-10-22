@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface ResearchRepository extends JpaRepository<Research, Long> {
 
-    @Query("SELECT r FROM Research r JOIN FETCH r.manager")
-    List<Research> findAllWithManager();
+//    @Query("SELECT r FROM Research r JOIN FETCH r.manager")
+//    List<Research> findAllWithManager();
 }

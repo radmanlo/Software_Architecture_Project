@@ -1,9 +1,8 @@
 package com.example.collaboration.controller;
 
-import com.example.collaboration.dto.CollaborationDto;
-import com.example.collaboration.dto.UserDto;
 import com.example.collaboration.entity.Collaboration;
 import com.example.collaboration.service.CollaborationService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,35 +12,75 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/collaboration")
+@RequiredArgsConstructor
 public class CollaborationController {
 
-    @Autowired
-    CollaborationService collaborationService;
+    private final CollaborationService collaborationService;
 
-    @PostMapping("/create")
-    public ResponseEntity<Collaboration> createRecordHistory (@RequestBody Collaboration collaboration){
+    @GetMapping("/getAll")
+    public ResponseEntity<List<Collaboration>> getAllCollaborators (){
         try{
-            Collaboration newCollaboration = collaborationService.createCollaboration(collaboration);
-            if (newCollaboration != null){
-                return ResponseEntity.status(HttpStatus.CREATED).body(collaboration);
-            }
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-        } catch (Exception e){
-            System.out.println("Exception createRecordHistory in CollaborationController " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-        }
-    }
-
-    @GetMapping("/Collaborators")
-    public ResponseEntity<List<CollaborationDto>> getAllCollaborators (@RequestParam long researchId){
-        try{
-            List<CollaborationDto> listCollaborators = collaborationService.getAllCollaborators(researchId);
+            List<Collaboration> listCollaborators = collaborationService.getAllCollaborations();
             if (!listCollaborators.isEmpty())
                 return ResponseEntity.status(HttpStatus.FOUND).body(listCollaborators);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         } catch (Exception e){
-            System.out.println("Exception getAllCollaborators in CollaborationController " + e.getMessage());
+            System.out.println("Exception getAllCollaborators in CollaborationController ==> " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+
+    @GetMapping("/getById")
+    public ResponseEntity<Collaboration> getCollByID (@RequestParam long collId){
+        try{
+            Collaboration foundColl = collaborationService.getCollById(collId);
+            if (foundColl != null)
+                return ResponseEntity.status(HttpStatus.FOUND).body(foundColl);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } catch (Exception e){
+            System.out.println("Exception getCollByID in CollaborationController ==> " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<Collaboration> createRecordHistory (@RequestBody Collaboration collaboration){
+        try{
+            Collaboration newCollaboration = collaborationService.createColl(collaboration);
+            if (newCollaboration != null){
+                return ResponseEntity.status(HttpStatus.CREATED).body(collaboration);
+            }
+            return ResponseEntity.status(HttpStatus.FOUND).body(null);
+        } catch (Exception e){
+            System.out.println("Exception createRecordHistory in CollaborationController ==> " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<Collaboration> updateColl (@RequestBody Collaboration update){
+        try{
+            Collaboration updatedColl = collaborationService.updateColl(update);
+            if (updatedColl != null){
+                return ResponseEntity.status(HttpStatus.ACCEPTED).body(updatedColl);
+            }
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } catch (Exception e){
+            System.out.println("Exception updateColl in CollaborationController ==> " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> deleteColl (@RequestParam long collId){
+        try {
+            if (collaborationService.deleteColl(collId))
+                return ResponseEntity.status(HttpStatus.OK).body("Deleted Successfully");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } catch (Exception e){
+            System.out.println("Exception deleteColl in CollaborationController ==> " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
 }

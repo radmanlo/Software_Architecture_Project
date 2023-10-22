@@ -2,31 +2,23 @@ package com.example.collaboration.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
-@Table
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
-@ToString
-public class Collaboration {
+public class Occupation {
 
     @Id @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private long collaborationId;
+    private long occupationId;
 
-    @Column(length = 2000)
-    private String coverLetter;
+    private String employer;
 
-    @ManyToOne
-    private Research research;
-
-    @ManyToOne
+    @OneToOne
     @JsonBackReference
     private User user;
-
-    @Enumerated(EnumType.STRING)
-    private Status status = Status.PENDING;
 
 }

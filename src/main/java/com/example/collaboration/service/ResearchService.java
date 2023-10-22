@@ -1,28 +1,16 @@
 package com.example.collaboration.service;
 
-import com.example.collaboration.dto.ResearchDto;
+import com.example.collaboration.entity.Research;
 
 import java.util.List;
 
 public interface ResearchService {
 
     /**
-     * Create a new Research
-     * @param researchDto
-     * @return ResearchDto if it was successful,
-     * otherwise
-     * @return NULL
+     * Get all researches
+     * @return list of researches
      */
-    ResearchDto createResearch (ResearchDto researchDto);
-
-    /**
-     * Update Research by its ID
-     * @param researchId
-     * @return Updated Research Data Transfer Object if it was successful
-     * otherwise
-     * @return NULL
-     */
-    ResearchDto updateResearch (long researchId);
+    List<Research> getAllResearches();
 
     /**
      * Get Research By its ID
@@ -31,28 +19,33 @@ public interface ResearchService {
      * otherwise
      * @return NULL
      */
-    ResearchDto getResearch (long researchId);
+    Research getResearch (long researchId);
 
     /**
-     * Get all researches
-     * @return list of researches
+     * Create a new Research
+     * @param researchDto
+     * @return ResearchDto if it was successful,
+     * otherwise
+     * @return NULL
      */
-    List<ResearchDto> getAllResearch();
+    Research createResearch (Research researchDto);
 
     /**
-     * Get Research by its name
-     * @param name
-     * @return
+     * Update Research by its ID
+     * @param research
+     * @return Updated Research Data Transfer Object if it was successful
+     * otherwise
+     * @return NULL
      */
-    ResearchDto getResearch (String name);
+    Research updateResearch (Research research);
 
     /**
      * Delete Research by its ID
-     * @param ResearchId
+     * @param researchId
      * @return True if it was successful
      * otherwise
      * @return False
      */
-    boolean deleteResearch (long ResearchId);
+    boolean deleteResearch (long researchId);
 
 }

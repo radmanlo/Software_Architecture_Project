@@ -1,8 +1,7 @@
 package com.example.collaboration.service;
 
 
-import com.example.collaboration.dto.CollaborationDto;
-import com.example.collaboration.dto.UserDto;
+
 import com.example.collaboration.entity.Collaboration;
 
 import java.util.List;
@@ -10,20 +9,46 @@ import java.util.List;
 public interface CollaborationService {
 
     /**
-     * Create a collaboration
-     * @param collaboration
-     * @return RecordDto if it is created successfully
-     * otherwise
-     * @return null
-     */
-    Collaboration createCollaboration (Collaboration collaboration);
-
-    /**
-     * Retrieve all users who work for that researchId
-     * @param researchId
+     * Retrieve all collaborations
      * @return List<UserDto> if there was any research and collaborators
      * otherwise
      * @return null
      */
-    List<CollaborationDto> getAllCollaborators (long researchId);
+    List<Collaboration> getAllCollaborations ();
+
+    /**
+     * Get a collaboration by its Id
+     * @param collId
+     * @return a collaboration object if it finds
+     * otherwise
+     * @return null
+     */
+    Collaboration getCollById (long collId);
+
+    /**
+     * Create a collaboration
+     * @param collaboration
+     * @return Collaboration if it is created successfully
+     * otherwise
+     * @return null
+     */
+    Collaboration createColl (Collaboration collaboration);
+
+    /**
+     * Update a collaboration by its id
+     * @param update
+     * @return updated Collaboration if it is updated
+     * otherwise
+     * @return null
+     */
+    Collaboration updateColl (Collaboration update);
+
+    /**
+     * Delete a collaboration by its id
+     * @param collId
+     * @return boolean if it is deleted successfully
+     * otherwise
+     * @return null
+     */
+    boolean deleteColl (long collId);
 }
