@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>List of Research</title>
+  <link rel="stylesheet" href="showAllStyle.css">
+</head>
+<h1>List of Application</h1>
+<body>
+
+<form id="collaboration-form">
+  <div class="input-div">
+    <label> User Email: </label>
+    <input type="text" name="userEmail" id="userEmail" >
+    <br>
+    <input type="submit" name="submitBtn " id="submitBtn">
+    <br>
+    <br>
+    <br>
+  </div>
+
+  <div class="output-div">
+    <h1>Applied</h1>
+    <div id="pending-container"></div>
+    <h1>Rejected</h1>
+    <div id="Rejected-container"></div>
+    <h1>Accepted</h1>
+    <div id="Accepted-container"></div>
+  </div>
+
+</form>
+
+<script type="module" src="showAllScript.js"></script>
+</body>
+</html>

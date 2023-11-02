@@ -43,6 +43,28 @@ public class CollaborationController {
         }
     }
 
+    @GetMapping("/getByResearchId")
+    public ResponseEntity<List<Collaboration>> getCollByResearchId (@RequestParam long researchId){
+        try {
+            List<Collaboration> collaborations = collaborationService.getCollByResearchID(researchId);
+            return ResponseEntity.status(HttpStatus.FOUND).body(collaborations);
+        }catch (Exception e){
+            System.out.println("Exception getCollByResearchId in CollaborationController ==> " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+    @GetMapping("/getByUserEmail")
+    public ResponseEntity<List<Collaboration>> getCollByUserEmail (@RequestParam String userEmail){
+        try {
+            List<Collaboration> collaborations = collaborationService.getCollByUserEmail(userEmail);
+            return ResponseEntity.status(HttpStatus.FOUND).body(collaborations);
+        } catch (Exception e){
+            System.out.println("Exception getCollByUserEmail in CollaborationController ==> " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
     @PostMapping("/create")
     public ResponseEntity<Collaboration> createRecordHistory (@RequestBody Collaboration collaboration){
         try{

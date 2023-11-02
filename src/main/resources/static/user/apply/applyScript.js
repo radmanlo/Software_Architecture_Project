@@ -10,7 +10,7 @@ let researchContainer = document.getElementById('research-container');
 let contributorNames = [];
 
 function fetchResearchData() {
-    fetch(`http://localhost:8080/collaboration/Collaborators?researchId=` + researchObj.researchId)
+    fetch(`http://localhost:8080/collaboration/getByResearchId?researchId=` + researchObj.researchId)
         .then((response) => {
             if (response.status === 302) {
                 return response.json();
@@ -31,8 +31,8 @@ function fetchResearchData() {
                 contributors.forEach((contributor) => {
                     // Process contributors
                     console.log(contributor)
-                    if (contributor.status != "PENDING")
-                        contributorNames.push(contributor.collaborator.firstName + " " + contributor.collaborator.lastName);
+                    if (contributor.status === "ACCEPTED")
+                        contributorNames.push(contributor.user.firstName + " " + contributor.user.lastName);
                 });
             }
             // Update the researchCard with contributor names
@@ -52,7 +52,7 @@ function fetchResearchData() {
                 <div class="field-label">Contributors:</div>
                 <div class="field-value">
                     <ul>
-                        ${contributorNames.map(name => `<li>${name}</li>`).join('')}
+                         ${contributorNames.map(name => `<li>${name}</li>`).join('')}
                     </ul>
                 </div>
             `;

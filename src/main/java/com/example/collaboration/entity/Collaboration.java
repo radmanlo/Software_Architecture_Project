@@ -23,7 +23,6 @@ public class Collaboration {
     private Research research;
 
     @ManyToOne
-    @JsonBackReference
     private User user;
 
     @Enumerated(EnumType.STRING)

@@ -9,7 +9,10 @@ import java.util.Optional;
 
 public interface CollaborationRepository extends JpaRepository<Collaboration, Long> {
     
-    Optional<Collaboration> findByResearchResearchIdAndUserEmail( long researchId, String email);
+    Optional<Collaboration> findByResearchResearchIdAndUserEmail ( long researchId, String email);
 
     Optional<List<Collaboration>> findByResearchResearchId(long researchId);
+
+    Optional<List<Collaboration>> findByUserEmail(String userEmail);
+
 }

@@ -32,6 +32,22 @@ public class CollaborationServiceImp implements CollaborationService {
     }
 
     @Override
+    public List<Collaboration> getCollByResearchID(long researchId) {
+        Optional<List<Collaboration>> collaborations = collRepository.findByResearchResearchId(researchId);
+        if (collaborations.isPresent())
+            return collaborations.get();
+        return null;
+    }
+
+    @Override
+    public List<Collaboration> getCollByUserEmail(String userEmail) {
+        Optional<List<Collaboration>> collaborations = collRepository.findByUserEmail(userEmail);
+        if (collaborations.isPresent())
+            return collaborations.get();
+        return null;
+    }
+
+    @Override
     public Collaboration createColl(Collaboration collaboration) {
         Optional<Collaboration> exist = collRepository.findByResearchResearchIdAndUserEmail(
                     collaboration.getResearch().getResearchId(),

@@ -26,8 +26,7 @@ public class User {
     private String firstName;
     private String lastName;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @OneToMany
     private List<Collaboration> collaborations;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)

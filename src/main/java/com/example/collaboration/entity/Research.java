@@ -1,5 +1,6 @@
 package com.example.collaboration.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -22,5 +23,8 @@ public class Research {
     private double salary;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date startDate;
+
+    @ManyToOne
+    private Manager manager;
 
 }

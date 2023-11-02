@@ -26,6 +26,24 @@ public interface CollaborationService {
     Collaboration getCollById (long collId);
 
     /**
+     * Get all collaborations based on the researchId
+     * @param researchId
+     * @return Collaboration if it was successful
+     * otherwise
+     * @return null
+     */
+    List<Collaboration> getCollByResearchID (long researchId);
+
+    /**
+     * find All collaboration based on user Email
+     * @param userEmail
+     * @return list of Collaboration if it finds
+     * otherwise
+     * @return null
+     */
+    List<Collaboration> getCollByUserEmail (String userEmail);
+
+    /**
      * Create a collaboration
      * @param collaboration
      * @return Collaboration if it is created successfully

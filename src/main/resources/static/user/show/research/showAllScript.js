@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:8080/research/showAll';
+const apiUrl = 'http://localhost:8080/research/getAll';
 
 // Function to fetch research data from the API
 function fetchResearchData() {
@@ -22,7 +22,7 @@ function fetchResearchData() {
 // Function to create and append a card-like structure for a research item
 function createResearchCard(researchItem) {
     // Create a div element for the research card
-    const researchCard = document.createElement('div');
+    let researchCard = document.createElement('div');
     researchCard.classList.add('research-card');
 
     // Populate the research card with data
@@ -44,11 +44,11 @@ function createResearchCard(researchItem) {
     `;
 
 
-    const applyButton = researchCard.querySelector('.apply-button');
+    let applyButton = researchCard.querySelector('.apply-button');
     applyButton.addEventListener('click', () => {
         event.preventDefault();
         console.log('Button clicked');
-        const researchObj = {
+        let researchObj = {
             researchId: researchItem.researchId,
             subject: researchItem.subject,
             description: researchItem.description,
@@ -57,10 +57,10 @@ function createResearchCard(researchItem) {
             manager: researchItem.manager.firstName + " "  + researchItem.manager.lastName
         };
         localStorage.setItem('research', JSON.stringify(researchObj));
-        location.href = `http://localhost:8080/research/apply/apply.html`; //?id=${researchItem.researchId}&subject=${researchItem.subject}`;
+        location.href = `../../apply/apply.html`; //?id=${researchItem.researchId}&subject=${researchItem.subject}`;
     });
 
-    const researchContainer = document.getElementById('research-container');
+    let researchContainer = document.getElementById('research-container');
     researchContainer.appendChild(researchCard);
 }
 

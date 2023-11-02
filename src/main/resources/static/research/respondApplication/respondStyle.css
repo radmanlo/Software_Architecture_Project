@@ -1,0 +1,144 @@
+.pending-card {
+    /*width: 100%; !* Adjust the width as needed *!*/
+    /*border: 1px solid #ccc;*/
+    /*padding: 20px;*/
+    /*margin: 10px;*/
+    /*box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);*/
+    /*background-color: #fff;*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    background-color: #fff;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.cancel-card {
+    /*width: 100%; !* Adjust the width as needed *!*/
+    /*border: 1px solid #ccc;*/
+    /*padding: 20px;*/
+    /*margin: 10px;*/
+    /*box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);*/
+    /*background-color: #fff;*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    background-color: #fff;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for research item fields */
+.field-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Style for the field values */
+.field-value {
+    margin-left: 30px;
+}
+
+/* Add spacing between fields */
+.pending-card div {
+    margin-bottom: 5px; /* Space between fields */
+}
+.cancel-card div {
+    margin-bottom: 5px; /* Space between fields */
+}
+
+#collaboration-form{
+    /*display: flex;*/
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 20px;
+}
+
+label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 400px;
+    margin-right: 600px;
+}
+
+input[type="text"] {
+    /*margin: 20px auto;*/
+
+    margin-left: 400px;
+    margin-right: 600px;
+    width: 20%;
+    padding: 5px;
+    /*margin-bottom: 10px;*/
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="submit"] {
+    padding: 5px 50px;
+    background-color: #007bff;
+    margin-left: 400px;
+    margin-right: 600px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+h1 {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 400px;
+    margin-right: 600px;
+}
+
+/* Apply styles to the card containers */
+/*.collaboration-card {*/
+/*    border: 1px solid #ccc;*/
+/*    padding: 10px;*/
+/*    margin: 10px 0;*/
+/*    background-color: #f9f9f9;*/
+/*}*/
+
+/* Apply styles to the buttons */
+button {
+    padding: 5px 10px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+button.accept-button {
+    background-color: #28a745;
+    padding: 10px 95px;
+    color: white;
+}
+
+button.reject-button {
+    background-color: #dc3545;
+    padding: 10px 95px;
+    color: white;
+}
+
+button.cancel-button {
+    background-color: #ffc107;
+    padding: 10px 220px;
+    color: black;
+}
+
+button:hover {
+    opacity: 0.8;
+}
