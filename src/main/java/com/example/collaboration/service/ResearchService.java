@@ -22,6 +22,15 @@ public interface ResearchService {
     Research getResearch (long researchId);
 
     /**
+     * Get research By manager email
+     * @param managerEmail
+     * @return list of researches if it finds
+     * otherwise
+     * @return null
+     */
+    List<Research> getResearchByManagerEmail (String managerEmail);
+
+    /**
      * Create a new Research
      * @param researchDto
      * @return ResearchDto if it was successful,

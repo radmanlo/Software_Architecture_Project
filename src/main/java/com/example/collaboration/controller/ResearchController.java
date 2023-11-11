@@ -40,6 +40,19 @@ public class ResearchController {
         }
     }
 
+    @GetMapping("/researchesByManager")
+    public ResponseEntity<List<Research>> getResearchByManagerEmail (@RequestParam String managerEmail){
+        try {
+            List<Research> researches = researchService.getResearchByManagerEmail(managerEmail);
+            if (researches != null)
+                return ResponseEntity.status(HttpStatus.FOUND).body(researches);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }catch (Exception e){
+            System.out.println("Exception in getResearchByManagerEmail in ResearchController ==> " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
     @PostMapping ("/create")
     public ResponseEntity<Research> createResearch (@RequestBody Research research){
         try {

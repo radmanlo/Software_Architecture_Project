@@ -41,13 +41,28 @@ public class OccupationController {
         }
     }
 
+    @GetMapping("/getByUserEmail")
+    public ResponseEntity<Occupation> getOccupationByUerEmail (@RequestParam String userEmail){
+        try {
+            Occupation foundOcc = occupationService.getOccupationByUserEmail(userEmail);
+            if (foundOcc != null)
+                return ResponseEntity.status(HttpStatus.FOUND).body(foundOcc);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } catch (Exception e){
+            System.out.println("Exception getOccupationByUerEmail in OccupationController " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+
+
     @PostMapping("/create")
     public ResponseEntity<Occupation> createOccupation (@RequestBody Occupation occupation){
         try {
             Occupation createdOcc = occupationService.createOccupation(occupation);
             if (createdOcc != null)
                 return ResponseEntity.status(HttpStatus.CREATED).body(createdOcc);
-            return ResponseEntity.status(HttpStatus.FOUND).body(null);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         } catch (Exception e){
             System.out.println("Exception createOccupation in OccupationController " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);

@@ -1,4 +1,4 @@
-/* Add CSS styles for the research card */
+/* Add CSS styles for the manager card */
 .research-card {
     /*width: 100%; !* Adjust the width as needed *!*/
     /*border: 1px solid #ccc;*/
@@ -16,7 +16,7 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Style for research item fields */
+/* Style for manager item fields */
 .field-label {
     font-weight: bold;
     margin-bottom: 5px;

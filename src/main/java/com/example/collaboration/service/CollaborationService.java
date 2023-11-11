@@ -10,7 +10,7 @@ public interface CollaborationService {
 
     /**
      * Retrieve all collaborations
-     * @return List<UserDto> if there was any research and collaborators
+     * @return List<UserDto> if there was any manager and collaborators
      * otherwise
      * @return null
      */

@@ -1,31 +1,20 @@
 const apiUrl = 'http://localhost:8080/research/getAll';
 
-// Function to fetch research data from the API
 function fetchResearchData() {
     fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => {
-            // Call a function to create and append card-like structures for each research item
             data.forEach((researchItem) => {
                 createResearchCard(researchItem);
             });
         })
         .catch((error) => {
-            console.error('Error fetching research data:', error);
+            console.error('Error fetching manager data:', error);
         });
 }
-//
-// function Redirect() {
-//     location.href="http://localhost:8080/research/apply/apply.html";
-// }
-
-// Function to create and append a card-like structure for a research item
 function createResearchCard(researchItem) {
-    // Create a div element for the research card
     let researchCard = document.createElement('div');
     researchCard.classList.add('research-card');
-
-    // Populate the research card with data
     researchCard.innerHTML = `
         <div class="field-label">Research ID:</div>
         <div class="field-value">${researchItem.researchId}</div>
@@ -39,15 +28,11 @@ function createResearchCard(researchItem) {
         <div class="field-value">${researchItem.startDate}</div>
         <div class="field-label">Manager:</div>
         <div class="field-value">${researchItem.manager.firstName} ${researchItem.manager.lastName}</div>
-        
-        <button class="apply-button" onclick=Redirect()>Apply</button>
+        <button class="apply-button">Apply</button>
     `;
-
-
     let applyButton = researchCard.querySelector('.apply-button');
     applyButton.addEventListener('click', () => {
         event.preventDefault();
-        console.log('Button clicked');
         let researchObj = {
             researchId: researchItem.researchId,
             subject: researchItem.subject,

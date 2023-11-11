@@ -16,8 +16,12 @@ public class Occupation {
     private long occupationId;
 
     private String employer;
+    private String experience;
 
-    @OneToOne
+
+    @OneToOne(
+    fetch = FetchType.LAZY
+    )
     @JsonBackReference
     private User user;
 

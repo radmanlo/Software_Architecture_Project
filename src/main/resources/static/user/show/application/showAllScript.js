@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
             })
             .catch((error) => {
-                console.error('Error fetching research data:', error);
+                console.error('Error fetching manager data:', error);
             });
     });
 });
@@ -42,12 +42,16 @@ function createApplicationCard(collItem) {
             <div class="field-value">${collItem.collaborationId}</div>
             <div class="field-label">Cover Letter:</div>
             <div class="field-value">${collItem.coverLetter}</div>
-            <div class="field-label">Applicant Email:</div>
-            <div class="field-value">${collItem.user.email}</div>
-            <div class="field-label">Applicant Name:</div>
-            <div class="field-value">${collItem.user.firstName} ${collItem.user.lastName}</div>
-            <div class="field-label">Occupation:</div>
-            <div class="field-value">${collItem.user.occupation}</div>
+            <div class="field-label">Research ID:</div>
+            <div class="field-value">${collItem.research.researchId}</div>
+            <div class="field-label">Research Subject:</div>
+            <div class="field-value">${collItem.research.subject}</div>
+            <div class="field-label">Research Description:</div>
+            <div class="field-value">${collItem.research.description}</div>
+            <div class="field-label">Research Salary:</div>
+            <div class="field-value">${collItem.research.salary}</div>
+            <div class="field-label">Research Start Date:</div>
+            <div class="field-value">${collItem.research.startDate}</div>
             <button class="delete-button">Delete</button>
         `;
         pendingCard.querySelector('.delete-button').addEventListener('click', () => {
@@ -74,7 +78,7 @@ function createApplicationCard(collItem) {
                                 })
                             })
                             .catch((error) => {
-                                console.error('Error fetching research data:', error);
+                                console.error('Error fetching manager data:', error);
                             });
                         // location.href = `http://localhost:8080/research/respondApplication/respond.html`;
                     } else
@@ -89,12 +93,16 @@ function createApplicationCard(collItem) {
             <div class="field-value">${collItem.collaborationId}</div>
             <div class="field-label">Cover Letter:</div>
             <div class="field-value">${collItem.coverLetter}</div>
-            <div class="field-label">Applicant Email:</div>
-            <div class="field-value">${collItem.user.email}</div>
-            <div class="field-label">Applicant Name:</div>
-            <div class="field-value">${collItem.user.firstName} ${collItem.user.lastName}</div>
-            <div class="field-label">Occupation:</div>
-            <div class="field-value">${collItem.user.occupation}</div>
+            <div class="field-label">Research ID:</div>
+            <div class="field-value">${collItem.research.researchId}</div>
+            <div class="field-label">Research Subject:</div>
+            <div class="field-value">${collItem.research.subject}</div>
+            <div class="field-label">Research Description:</div>
+            <div class="field-value">${collItem.research.description}</div>
+            <div class="field-label">Research Salary:</div>
+            <div class="field-value">${collItem.research.salary}</div>
+            <div class="field-label">Research Start Date:</div>
+            <div class="field-value">${collItem.research.startDate}</div>
             <button class="delete-button">Delete</button>
         `;
         acceptCard.querySelector('.delete-button').addEventListener('click', () => {
@@ -122,7 +130,7 @@ function createApplicationCard(collItem) {
                                     })
                                 })
                                 .catch((error) => {
-                                    console.error('Error fetching research data:', error);
+                                    console.error('Error fetching manager data:', error);
                                 });
                             // location.href = `http://localhost:8080/research/respondApplication/respond.html`;
                         } else
@@ -137,12 +145,16 @@ function createApplicationCard(collItem) {
             <div class="field-value">${collItem.collaborationId}</div>
             <div class="field-label">Cover Letter:</div>
             <div class="field-value">${collItem.coverLetter}</div>
-            <div class="field-label">Applicant Email:</div>
-            <div class="field-value">${collItem.user.email}</div>
-            <div class="field-label">Applicant Name:</div>
-            <div class="field-value">${collItem.user.firstName} ${collItem.user.lastName}</div>
-            <div class="field-label">Occupation:</div>
-            <div class="field-value">${collItem.user.occupation}</div>
+            <div class="field-label">Research ID:</div>
+            <div class="field-value">${collItem.research.researchId}</div>
+            <div class="field-label">Research Subject:</div>
+            <div class="field-value">${collItem.research.subject}</div>
+            <div class="field-label">Research Description:</div>
+            <div class="field-value">${collItem.research.description}</div>
+            <div class="field-label">Research Salary:</div>
+            <div class="field-value">${collItem.research.salary}</div>
+            <div class="field-label">Research Start Date:</div>
+            <div class="field-value">${collItem.research.startDate}</div>
         `;
     }
 
@@ -162,7 +174,7 @@ function createApplicationCard(collItem) {
 
 // function createResearchCard(researchItem) {
 //     let researchCard = document.createElement('div');
-//     researchCard.classList.add('research-card');
+//     researchCard.classList.add('manager-card');
 //     researchCard.innerHTML = `
 //         <div class="field-label">Research ID:</div>
 //         <div class="field-value">${researchItem.researchId}</div>
@@ -193,11 +205,11 @@ function createApplicationCard(collItem) {
 //             startDate: researchItem.startDate,
 //             manager: researchItem.manager.firstName + " "  + researchItem.manager.lastName
 //         };
-//         localStorage.setItem('research', JSON.stringify(researchObj));
+//         localStorage.setItem('manager', JSON.stringify(researchObj));
 //         location.href = `../../apply/apply.html`; //?id=${researchItem.researchId}&subject=${researchItem.subject}`;
 //     });
 //
-//     let researchContainer = document.getElementById('research-container');
+//     let researchContainer = document.getElementById('manager-container');
 //     researchContainer.appendChild(researchCard);
 // }
 

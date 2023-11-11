@@ -35,11 +35,20 @@ public class ResearchServiceImpl implements ResearchService {
     }
 
     @Override
+    public List<Research> getResearchByManagerEmail(String managerEmail) {
+        Optional<List<Research>> researches = researchRepository.findByManagerEmail(managerEmail);
+        if (researches.isPresent()){
+            return researches.get();
+        }
+        return null;
+    }
+
+    @Override
     public Research createResearch(Research research) {
         Manager manager = managerService.getManagerByEmail(research.getManager().getEmail());
         if (manager != null){
             research.setManager(manager);
-            System.out.println("Manager =>>" + manager.toString());
+//            System.out.println("Manager =>>" + manager.toString());
             Research createdResearch = researchRepository.save(research);
             System.out.println("..........................................");
             System.out.println("Research is Created" + research.toString());
@@ -52,8 +61,17 @@ public class ResearchServiceImpl implements ResearchService {
     @Override
     public Research updateResearch(Research research) {
         Optional<Research> foundResearch = researchRepository.findById(research.getResearchId());
-        if (foundResearch.isPresent())
-            return researchRepository.save(research);
+        if (foundResearch.isPresent()) {
+            foundResearch.get().setStartDate(research.getStartDate() == null ?
+                    foundResearch.get().getStartDate() : research.getStartDate());
+            foundResearch.get().setSalary(research.getSalary() == 0.0 ?
+                    foundResearch.get().getSalary() : research.getSalary());
+            foundResearch.get().setSubject(research.getSubject().isEmpty() ?
+                    foundResearch.get().getSubject() : research.getSubject());
+            foundResearch.get().setDescription(research.getDescription().isEmpty() ?
+                    foundResearch.get().getDescription() : research.getDescription());
+            return researchRepository.save(foundResearch.get());
+        }
         return null;
     }
 

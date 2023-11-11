@@ -16,12 +16,21 @@ public interface OccupationService {
 
     /**
      * Get an Occupation by its Id
-     * @param cccupationId
+     * @param occupationId
      * @return Occupation object if it was found
      * otherwise
      * @return null
      */
     Occupation getOccupationById (long occupationId);
+
+    /**
+     * Get Occupation by user email
+     * @param userEmail
+     * @return Occupation if it was successful
+     * otherwise
+     * @return null
+     */
+    Occupation getOccupationByUserEmail (String userEmail);
 
     /**
      * Create a new Occupation

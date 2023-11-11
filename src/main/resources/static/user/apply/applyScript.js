@@ -2,7 +2,7 @@ let serializedData = localStorage.getItem('research');
 let researchObj = JSON.parse(serializedData);
 
 let researchCard = document.createElement('div');
-researchCard.classList.add('research-card');
+researchCard.classList.add('manager-card');
 
 let researchContainer = document.getElementById('research-container');
 
@@ -16,7 +16,7 @@ function fetchResearchData() {
                 return response.json();
             } else if (response.status === 404) {
                 // Handle the case where there are no contributors
-                console.log('No contributors found for this research');
+                console.log('No contributors found for this manager');
                 return null;
             } else {
                 // Handle other error cases
