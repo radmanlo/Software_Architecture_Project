@@ -48,7 +48,6 @@ public class ResearchServiceImpl implements ResearchService {
         Manager manager = managerService.getManagerByEmail(research.getManager().getEmail());
         if (manager != null){
             research.setManager(manager);
-//            System.out.println("Manager =>>" + manager.toString());
             Research createdResearch = researchRepository.save(research);
             System.out.println("..........................................");
             System.out.println("Research is Created" + research.toString());

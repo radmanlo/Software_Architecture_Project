@@ -1,5 +1,6 @@
 package com.example.collaboration.service.implementation;
 
+import com.example.collaboration.entity.Occupation;
 import com.example.collaboration.entity.Researcher;
 import com.example.collaboration.entity.User;
 import com.example.collaboration.repository.ResearcherRepository;

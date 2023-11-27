@@ -51,9 +51,7 @@ function fetchResearchData() {
                 <div class="field-value">${researchObj.manager}</div>
                 <div class="field-label">Contributors:</div>
                 <div class="field-value">
-                    <ul>
-                         ${contributorNames.map(name => `<li>${name}</li>`).join('')}
-                    </ul>
+                     ${contributorNames.map(name => `<li>${name}</li>`).join('')}
                 </div>
             `;
         })

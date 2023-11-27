@@ -14,9 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                         else{
                             managerEmail = formData.get("email")
-                            let updateContainer = document.getElementById('update-container');
                             let researchContainer = document.getElementById('research-container');
-                            updateContainer.innerHTML = '';
                             researchContainer.innerHTML ='';
                             researches.forEach((research) => {
                                 console.log("I am in for each!")
@@ -81,13 +79,13 @@ function createResearchCard(research) {
         <button class="update-button">Update</button>
         <button class="delete-button">delete</button>
         <button class="applicants-button">Applicants</button>
+        <div class="extra-info-container"></div>
     `;
     researchCard.querySelector('.update-button').addEventListener('click', () =>{
         event.preventDefault();
         let updateCard = document.createElement('div')
-        updateCard.classList.add('update-occupation-card')
-        let updateContainer = document.getElementById('update-container');
-        updateContainer.innerHTML = '';
+        updateCard.classList.add('update-card')
+        let extraInfoContainer = researchCard.querySelector('.extra-info-container');
         updateCard.innerHTML = `
             <label for="subject">Subject:</label>
             <input type="text" id="subject" name="subject">
@@ -124,6 +122,8 @@ function createResearchCard(research) {
                 }).then(response =>{
                     if (response.status === 200){
                         alert("Research is Updated!")
+                        let researchContainer = document.getElementById('research-container');
+                        researchContainer.innerHTML ='';
                         fetchResearchApi()
                     }
                     else if (response.status === 404){
@@ -137,8 +137,12 @@ function createResearchCard(research) {
                 })
             }
         })
-        updateContainer = document.getElementById('update-container');
-        updateContainer.appendChild(updateCard);
+        updateCard.querySelector('.cancelBtn').addEventListener('click', ()=> {
+            event.preventDefault();
+            let extraInfoContainer = researchCard.querySelector('.extra-info-container');
+            extraInfoContainer.innerHTML="";
+        })
+        extraInfoContainer.appendChild(updateCard);
     })
     researchCard.querySelector(".delete-button").addEventListener('click', ()=>{
         event.preventDefault();
@@ -152,9 +156,7 @@ function createResearchCard(research) {
             }).then(response =>{
                 if (response.status === 200){
                     alert("Research is Deleted!")
-                    let updateContainer = document.getElementById('update-container');
                     let researchContainer = document.getElementById('research-container');
-                    updateContainer.innerHTML = '';
                     researchContainer.innerHTML ='';
                     fetchResearchApi()
                 }

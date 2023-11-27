@@ -112,14 +112,12 @@ function createUpdateCard(occupation){
     let updateCard = document.createElement('div')
     updateCard.classList.add('update-occupation-card')
     updateCard.innerHTML = `
-        <div class="field-label">Employer:</div>
-        <input type="text" name="employer" id="employer">
-        <div class="field-label">Experience:</div>
-        <input type="text" name="experience" id="experience">
-        <button class="updateBtn">Update</button>
+        <div class="field-label">Employer: <input type="text" name="employer" id="employer"></div>
+        <div class="field-label">Experience: <input type="text" name="experience" id="experience"></div> 
+        <button class="update-button">Update</button>
         <button class="cancelBtn">Cancel</button>
     `;
-    updateCard.querySelector('.updateBtn').addEventListener('click', () => {
+    updateCard.querySelector('.update-button').addEventListener('click', () => {
         event.preventDefault();
         const newEmployer = document.getElementById('employer').value
         const newExperience = document.getElementById('experience').value
@@ -163,10 +161,8 @@ function createOccupationCard(){
     createCard.classList.add('update-occupation-card')
     createCard.innerHTML = `
         <p>PLease Specify Your Occupation</p>
-        <div class="field-label">Employer:</div>
-        <input type="text" name="employer" id="employer">
-        <div class="field-label">Experience:</div>
-        <input type="text" name="experience" id="experience">
+        <div class="field-label">Employer: <input type="text" name="employer" id="employer"></div>
+        <div class="field-label">Experience: <input type="text" name="experience" id="experience"></div>
         <button class="createBtn">Create</button>
         <button class="cancelBtn">Cancel</button>
     `;

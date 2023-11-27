@@ -1,13 +1,11 @@
-/* Add CSS styles for the manager card */
+body {
+    background-color: #ccc;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
 .research-card {
-    /*width: 100%; !* Adjust the width as needed *!*/
-    /*border: 1px solid #ccc;*/
-    /*padding: 20px;*/
-    /*margin: 10px;*/
-    /*box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);*/
-    /*background-color: #fff;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
     background-color: #fff;
     max-width: 500px;
     margin: 20px auto;
@@ -16,27 +14,23 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Style for manager item fields */
 .field-label {
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-/* Style for the field values */
-.field-value {
-    margin-left: 30px;
-}
+/*.field-value {*/
+/*    margin-left: 30px;*/
+/*}*/
 
-/* Add spacing between fields */
 .research-card div {
-    margin-bottom: 5px; /* Space between fields */
+    margin-bottom: 5px;
 }
 
-/* Style for the "Apply" button */
 .apply-button {
-    background-color: #007bff; /* Blue background color */
-    color: #fff; /* White text color */
-    padding: 10px 230px; /* Padding for button */
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 230px;
     border: none;
     cursor: pointer;
     margin-top: 10px;
@@ -44,5 +38,5 @@
 }
 
 .apply-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
 }

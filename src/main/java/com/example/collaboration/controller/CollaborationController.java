@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/collaboration")
 @RequiredArgsConstructor
 public class CollaborationController {
 
+    // Collaboration Functionalities
     private final CollaborationService collaborationService;
 
     @GetMapping("/getAll")

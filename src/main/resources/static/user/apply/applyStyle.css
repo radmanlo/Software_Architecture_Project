@@ -1,3 +1,9 @@
+body {
+    background-color: #ccc;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
 .body {
     font-family: Arial, sans-serif;
     background-color: #f3f3f3;
@@ -27,15 +33,13 @@
     padding: 5px 0;
 }
 
-/* Style for manager item fields */
 .field-label {
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-/* Style for the field values */
 .field-value {
-    margin-left: 30px;
+    margin-bottom: 30px;
 }
 
 #application-form{
@@ -59,13 +63,13 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-    resize: vertical; /* Allow vertical resizing */
+    resize: vertical;
 }
 
 .apply-button {
-    background-color: #007bff; /* Blue background color */
-    color: #fff; /* White text color */
-    padding: 10px 230px; /* Padding for button */
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 230px;
     border: none;
     cursor: pointer;
     margin-top: 10px;
@@ -73,5 +77,5 @@ textarea {
 }
 
 .apply-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
 }

@@ -27,4 +27,6 @@ public class Research {
     @ManyToOne
     private Manager manager;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Collaboration> collaborations;
 }

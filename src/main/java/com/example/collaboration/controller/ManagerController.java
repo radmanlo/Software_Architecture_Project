@@ -14,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ManagerController {
 
+    // Manager Functionality
     private final ManagerService managerService;
 
     @GetMapping("/getAll")

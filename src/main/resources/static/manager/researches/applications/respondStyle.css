@@ -1,12 +1,4 @@
 .pending-card {
-    /*width: 100%; !* Adjust the width as needed *!*/
-    /*border: 1px solid #ccc;*/
-    /*padding: 20px;*/
-    /*margin: 10px;*/
-    /*box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);*/
-    /*background-color: #fff;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
     background-color: #fff;
     max-width: 500px;
     margin: 20px auto;
@@ -23,14 +15,6 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 .cancel-card {
-    /*width: 100%; !* Adjust the width as needed *!*/
-    /*border: 1px solid #ccc;*/
-    /*padding: 20px;*/
-    /*margin: 10px;*/
-    /*box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);*/
-    /*background-color: #fff;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
     background-color: #fff;
     max-width: 500px;
     margin: 20px auto;
@@ -39,23 +23,20 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Style for manager item fields */
 .field-label {
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-/* Style for the field values */
 .field-value {
     margin-left: 30px;
 }
 
-/* Add spacing between fields */
 .pending-card div {
-    margin-bottom: 5px; /* Space between fields */
+    margin-bottom: 5px;
 }
 .cancel-card div {
-    margin-bottom: 5px; /* Space between fields */
+    margin-bottom: 5px;
 }
 
 .container {
@@ -147,7 +128,6 @@ h1 {
 /*    background-color: #f9f9f9;*/
 /*}*/
 
-/* Apply styles to the buttons */
 button {
     padding: 5px 10px;
     margin: 5px;

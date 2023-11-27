@@ -15,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OccupationController {
 
+    // Occupation Functionality
     private final OccupationService occupationService;
 
     @GetMapping("/getAll")

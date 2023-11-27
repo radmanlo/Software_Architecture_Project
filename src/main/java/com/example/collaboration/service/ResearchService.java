@@ -32,12 +32,12 @@ public interface ResearchService {
 
     /**
      * Create a new Research
-     * @param researchDto
+     * @param research
      * @return ResearchDto if it was successful,
      * otherwise
      * @return NULL
      */
-    Research createResearch (Research researchDto);
+    Research createResearch (Research research);
 
     /**
      * Update Research by its ID

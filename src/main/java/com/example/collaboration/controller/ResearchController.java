@@ -14,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ResearchController {
 
+    // Research Functionality
     private final ResearchService researchService;
 
     @GetMapping("/getAll")
@@ -27,13 +28,18 @@ public class ResearchController {
         }
     }
 
+    /**
+     * Get the research by its id
+     * @param researchId
+     * @return research and status code
+     */
     @GetMapping("/getById")
     public ResponseEntity<Research> getResearchById (@RequestParam long researchId){
         try {
             Research research = researchService.getResearch(researchId);
             if (research != null)
-                return ResponseEntity.status(HttpStatus.FOUND).body(research);
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+                return ResponseEntity.status(HttpStatus.FOUND).body(research); // return research with Found Http status code
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null); // return null with error http status code
         } catch (Exception e){
             System.out.println("Exception in getResearchById in ResearchController ==> " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -53,12 +59,18 @@ public class ResearchController {
         }
     }
 
+
+    /**
+     * create a research
+     * @param research
+     * @return research and http status code
+     */
     @PostMapping ("/create")
     public ResponseEntity<Research> createResearch (@RequestBody Research research){
         try {
             Research newResearch = researchService.createResearch(research);
             if (research != null)
-                return ResponseEntity.status(HttpStatus.CREATED).body(newResearch);
+                return ResponseEntity.status(HttpStatus.CREATED).body(newResearch); // return created research
             return ResponseEntity.status(HttpStatus.FOUND).body(null);
         } catch (Exception e){
             System.out.println("Exception in createResearch in ResearchController ==> " + e.getMessage());

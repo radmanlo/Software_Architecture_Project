@@ -16,7 +16,7 @@ function createResearchCard(researchItem) {
     let researchCard = document.createElement('div');
     researchCard.classList.add('research-card');
     researchCard.innerHTML = `
-        <div class="field-label">Research ID:</div>
+        <div class="field-label">Research ID: </div>
         <div class="field-value">${researchItem.researchId}</div>
         <div class="field-label">Subject:</div>
         <div class="field-value">${researchItem.subject}</div>

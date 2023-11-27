@@ -3,27 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Occupation</title>
+    <link rel="stylesheet" href="occupationStyle.css">
 </head>
 <body>
     <form id="occupation-form">
+        <h1>Your Occupation</h1>
         <div class="input-div">
             <label> User Email: </label>
             <input type="text" name="userEmail" id="userEmail" >
             <br>
-            <input type="submit" name="submitBtn " id="submitBtn">
+            <input type="submit" name="submitBtn " id="submitBtn" value="Search">
             <br>
             <br>
             <br>
         </div>
-    </form>
 
-    <form>
-        <div id="occupation-container"></div>
-    </form>
+        <div class="updateCon" id="update-create-container"></div>
 
-    <form>
-        <div id="update-create-container"></div>
     </form>
+    <div id="occupation-container"></div>
 
     <script type="module" src="occupationScript.js"></script>
 </body>

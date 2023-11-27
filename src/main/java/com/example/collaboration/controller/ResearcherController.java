@@ -14,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ResearcherController {
 
+    // Researcher Functionality
     private final ResearcherService researcherService;
 
     @GetMapping("/getAll")

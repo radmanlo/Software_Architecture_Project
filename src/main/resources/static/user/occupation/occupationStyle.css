@@ -1,0 +1,117 @@
+body {
+    background-color: #ccc;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+form {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+p{
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+.occupation-card{
+    background-color: #fff;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.field-label {
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.field-value {
+    margin-left: 30px;
+}
+
+.delete-button {
+    background-color: red;
+    color: #fff;
+    padding: 10px 230px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover{
+    background-color: darkred;
+}
+
+.update-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 230px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.update-button:hover{
+    background-color: blue;
+}
+
+.research-card div {
+    margin-bottom: 5px;
+
+}
+
+#submitBtn {
+    background-color: green;
+    color: #fff;
+    padding: 10px 230px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+
+#submitBtn:hover {
+    background-color: darkgreen;
+}
+
+.createBtn{
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 230px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.createBtn:hover{
+    background-color: blue;
+}
+
+.cancelBtn{
+    background-color:orange;
+    color: #fff;
+    padding: 10px 230px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.cancelBtn:hover {
+    background-color: darkorange;
+}
+
+
